@@ -165,10 +165,11 @@ class App extends Component {
               src={multipleUsers}
               alt='multi-user-alt'
             />
-            Choose number of <b>People</b>
+            <p className="heading">Choose number of <b>People</b></p>
           </div>
           <div className="Main-box">
             <div className="Data-row">
+            <span>
               <Image
                 id='single-bed-logo'
                 className='icon single-bed-logo-class'
@@ -176,6 +177,8 @@ class App extends Component {
                 alt='single-bed-alt'
               />
               ROOMS
+              </span>
+              <span>
               <IncrementButtons
                 id='room'
                 baseCount={this.state.roomCount}
@@ -184,6 +187,9 @@ class App extends Component {
                 increasedMethod={this.increaseRoomCount}
                 decreaseMethod={this.decreaseRoomCount}
               />
+              </span>
+              </div>
+            <div className="Data-row">
               <hr />
               <Image
                 id='man-user-logo'
@@ -199,6 +205,8 @@ class App extends Component {
                 increasedMethod={this.increaseAdultCount}
                 decreaseMethod={this.decreaseAdultCount}
               />
+              </div>
+            <div className="Data-row">
               <hr />
               <Image
                 id='hands-up-logo'

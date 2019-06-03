@@ -49,3 +49,7 @@ hr {
     transform: rotate(360deg);
   }
 }
+.heading {
+  display: inline-block;
+    padding-left: 10px;
+}

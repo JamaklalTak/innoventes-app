@@ -29,11 +29,23 @@
   border: 1px solid black; 
 }
 
-.Data-row {
-  height: 25%;
+.pad-23 {
+  padding: 23px;
 }
-
+.ta-left {
+  text-align: left
+}
+.pl-5 {
+  padding-left: 5px !important;
+}
+.ta-right {
+  text-align: right;
+}
+.pad-5 {
+  padding: 5px;
+}
 hr {
+  margin: 0px 0px 0px 18px;
   width: 94%;
   color: black;
 }

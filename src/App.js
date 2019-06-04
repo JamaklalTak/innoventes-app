@@ -86,7 +86,7 @@ class App extends Component {
     }
   }
   decreaseAdultCount = () => {
-    if (this.state.adultCount  >= this.state.roomCount) {
+    if (this.state.adultCount >= this.state.roomCount) {
       this.setState({
         adultCount: this.state.adultCount - 1
       }, () => {
@@ -138,20 +138,20 @@ class App extends Component {
     }
   }
   decreaseChildCount = () => {
-    if(this.state.adultCount >= this.state.roomCount && 
-      this.state.adultCount + this.state.childrenCount <= this.state.roomCount * this.memberPerRoom){
-        this.setState({
-          childrenCount: this.state.childrenCount - 1
-        }, () => {
-          if (this.state.childrenCount + this.state.adultCount >= (this.state.roomCount - 1) * this.memberPerRoom &&
-            this.state.childrenCount + this.state.adultCount <= this.state.roomCount * this.memberPerRoom
-            && this.state.roomCount >= this.state.roomMinCount) {
-            this.setState({
-              roomMinCount: this.state.roomCount - 1
-            });
-          }
-        });
-      }
+    if (this.state.adultCount >= this.state.roomCount &&
+      this.state.adultCount + this.state.childrenCount <= this.state.roomCount * this.memberPerRoom) {
+      this.setState({
+        childrenCount: this.state.childrenCount - 1
+      }, () => {
+        if (this.state.childrenCount + this.state.adultCount >= (this.state.roomCount - 1) * this.memberPerRoom &&
+          this.state.childrenCount + this.state.adultCount <= this.state.roomCount * this.memberPerRoom
+          && this.state.roomCount >= this.state.roomMinCount) {
+          this.setState({
+            roomMinCount: this.state.roomCount - 1
+          });
+        }
+      });
+    }
   }
 
   render() {
@@ -168,60 +168,73 @@ class App extends Component {
             <p className="heading">Choose number of <b>People</b></p>
           </div>
           <div className="Main-box">
-            <div className="Data-row">
-            <span>
-              <Image
-                id='single-bed-logo'
-                className='icon single-bed-logo-class'
-                src={singleBed}
-                alt='single-bed-alt'
-              />
-              ROOMS
-              </span>
-              <span>
-              <IncrementButtons
-                id='room'
-                baseCount={this.state.roomCount}
-                minCount={this.state.roomMinCount}
-                maxCount={this.state.roomMaxCount}
-                increasedMethod={this.increaseRoomCount}
-                decreaseMethod={this.decreaseRoomCount}
-              />
-              </span>
+            <div className="row pad-23">
+              <div className="col-md-6 ta-left">
+                <Image
+                  id='single-bed-logo'
+                  className='icon single-bed-logo-class'
+                  src={singleBed}
+                  alt='single-bed-alt'
+                />
+                <span className="pl-5">ROOMS</span>
               </div>
-            <div className="Data-row">
-              <hr />
-              <Image
-                id='man-user-logo'
-                className='icon man-user-logo-class'
-                src={manUser}
-                alt='man-user-alt'
-              />
-              ADULTS
-              <IncrementButtons
-                baseCount={this.state.adultCount}
-                minCount={this.state.adultMinCount}
-                maxCount={this.state.adultMaxCount}
-                increasedMethod={this.increaseAdultCount}
-                decreaseMethod={this.decreaseAdultCount}
-              />
+              <div class="col-md-6 ta-right">
+                <IncrementButtons
+                  id='room'
+                    className="pad-5"
+                  baseCount={this.state.roomCount}
+                  minCount={this.state.roomMinCount}
+                  maxCount={this.state.roomMaxCount}
+                  increasedMethod={this.increaseRoomCount}
+                  decreaseMethod={this.decreaseRoomCount}
+                />
               </div>
-            <div className="Data-row">
-              <hr />
-              <Image
-                id='hands-up-logo'
-                className='icon hands-up-logo-class'
-                src={handsUp}
-                alt='hands-up-alt'
-              />
-              CHILDREN
-              <IncrementButtons
-                baseCount={this.state.childrenCount}
-                minCount={this.state.childrenMinCount}
-                maxCount={this.state.childrenMaxCount}
-                increasedMethod={this.increaseChildCount}
-                decreaseMethod={this.decreaseChildCount}
-              />
+            </div>
+            <hr />
+            <div className="row pad-23">
+              <div className="col-md-6 ta-left">
+                <Image
+                  id='man-user-logo'
+                  className='icon man-user-logo-class'
+                  src={manUser}
+                  alt='man-user-alt'
+                />
+                <span className="pl-5">ADULTS</span>
+              </div>
+              <div class="col-md-6 ta-right">
+                <IncrementButtons
+                  id="adult"
+                  className="pad-5"
+                  baseCount={this.state.adultCount}
+                  minCount={this.state.adultMinCount}
+                  maxCount={this.state.adultMaxCount}
+                  increasedMethod={this.increaseAdultCount}
+                  decreaseMethod={this.decreaseAdultCount}
+                />
+              </div>
+            </div>
+            <hr />
+            <div className="row pad-23">
+              <div className="col-md-6 ta-left">
+                <Image
+                  id='hands-up-logo'
+                  className='icon hands-up-logo-class'
+                  src={handsUp}
+                  alt='hands-up-alt'
+                />
+                <span className="pl-5">CHILDREN</span>
+              </div>
+              <div className="col-md-6 ta-right">
+                <IncrementButtons
+                  id="child"
+                  className="pad-5"
+                  baseCount={this.state.childrenCount}
+                  minCount={this.state.childrenMinCount}
+                  maxCount={this.state.childrenMaxCount}
+                  increasedMethod={this.increaseChildCount}
+                  decreaseMethod={this.decreaseChildCount}
+                />
+              </div>
             </div>
           </div>
         </header>

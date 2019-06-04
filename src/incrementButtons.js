@@ -9,7 +9,7 @@ import plus from './plus-sign-in-a-black-circle.svg';
 
 class IncrementButtons extends Component {
 	render() {
-		const { id, baseCount, minCount, maxCount, decreaseMethod, increasedMethod } = this.props;
+		const { id, className, baseCount, minCount, maxCount, decreaseMethod, increasedMethod } = this.props;
 		let Minus = <Image
 										id='minus-logo-id'
 										className='icon minus-logo-class'
@@ -43,7 +43,7 @@ class IncrementButtons extends Component {
 		return (
 			<React.Fragment>
 						{Minus}
-						<span id={id+'_count'}>{baseCount}</span>
+						<span id={id+'_count'} className={className}>{baseCount}</span>
 						{Plus}
 			</React.Fragment>
 		);
